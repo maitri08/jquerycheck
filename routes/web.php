@@ -12,16 +12,30 @@
 */
 
 Route::get('/','Home\ProductController@home');
+Route::get('/listing','Home\ProductController@listingpage');
 
 Route::get('/photobook','Home\ProductController@photobook');
 //Auth::routes();
+Route::post('/template-product','Template\TemplateController@sizeselection');
+
+Route::get('/testing-layout/{pageproduct}-{pageproductval}','Template\TemplateController@designermenu');
+
+Route::post('/template-offset','Template\TemplateController@cordinate');
+
+Route::get('/template-api','Home\ProductController@templateapi');
 
 Route::get('/template',function(){
 	return view('template.template');
 });
+
+Route::get('/test-dragresize',function(){
+	return view('template.maitri');
+});
+
 Route::get('/custom-template',function(){
 	return view('template.customtemplate');
 });
+
 
 Route::get('/custom-layout',function(){
 	return view('template.testlayout');
@@ -37,12 +51,18 @@ Route::get('/designer-layout',function(){
 	return view('template.designer');
 });
 
+Route::get('/product-selection',function(){
+	return view('template.productsize');
+});
+
+
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get('signin','Auth\LoginController@showLoginForm');
+Route::get('signin','Authcustomer\LoginController@showLoginForm');
 Route::post('signin','LoginHandleController@login');
 Route::get('signout','LoginHandleController@logout');
 

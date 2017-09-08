@@ -57,5 +57,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'customer' => \App\Http\Middleware\RedirectIfNotCustomer::class,
+        'role' => \Laraveldaily\Quickadmin\Middleware\HasPermissions::class,
     ];
 }
